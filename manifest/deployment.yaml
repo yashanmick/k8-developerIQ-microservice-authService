@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-with-posgres
+  labels:
+    app: auth-with-posgres
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: auth-with-posgres
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
+  template:
+    metadata:
+      labels:
+        app: auth-with-posgres
+    spec:
+      containers:
+        - name: auth-with-posgres
+          image: yashanthilakasiri/auth-with-posgres
+          ports:
+            - containerPort: 5000
+          envFrom:
+            - configMapRef:
+                name: auth-configmap
+            - secretRef:
+                name: auth-secret
