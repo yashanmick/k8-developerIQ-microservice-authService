@@ -32,7 +32,7 @@ jobs:
 
     - name: Build, tag, and push Docker image to Docker Hub
       env:
-        REPOSITORY: auth-with-posgres
+        REPOSITORY: auth-with-postgres
         IMAGE_TAG: latest
       run: |
         docker build -t $REPOSITORY:$IMAGE_TAG .
