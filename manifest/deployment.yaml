@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: auth-with-postgres
   labels:
-    app: auth-with-posygres
+    app: auth-with-postgres
 spec:
   replicas: 2
   selector:
