@@ -21,6 +21,7 @@ spec:
       containers:
         - name: auth-with-posgres
           image: yashanthilakasiri/auth-with-posgres
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
           envFrom:
