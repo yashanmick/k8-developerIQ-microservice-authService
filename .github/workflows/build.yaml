@@ -41,10 +41,10 @@ jobs:
 
     - name: Update kube config
       run: aws eks update-kubeconfig --name eksCourseWork-eksctl --region ap-southeast-1
-    
-    - name: Deploy to EKS
       env:
-        KUBECONFIG: $HOME/.kube/config
+        KUBECONFIG: ${{ runner.workspace }}/.kube/config
+        
+    - name: Deploy to EKS
       run: |
         kubectl apply -f manifest/deployment.yaml
         kubectl apply -f manifest/service.yaml
