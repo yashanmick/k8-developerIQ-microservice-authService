@@ -44,6 +44,10 @@ jobs:
       env:
         KUBECONFIG: ${{ runner.workspace }}/.kube/config
         
+    - name: Display Kubeconfig
+      run: cat ${{ runner.workspace }}/.kube/config
+        
+
     - name: Deploy to EKS
       run: |
         kubectl apply -f manifest/deployment.yaml
